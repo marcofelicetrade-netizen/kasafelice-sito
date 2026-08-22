@@ -1,0 +1,6 @@
+{
+  "name": "KasaFelice",
+  "description": "Sito web ufficiale di KasaFelice - Mediazione immobiliare, marittima e consulenza di Felice Marco. Le persone prima degli immobili.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
