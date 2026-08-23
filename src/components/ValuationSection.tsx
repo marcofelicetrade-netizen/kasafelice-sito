@@ -67,7 +67,7 @@ export const ValuationSection: React.FC<ValuationSectionProps> = ({ onSuccess })
         tempistica: formData.timeline,
         nome_cognome: formData.fullName,
         telefono: formData.phone,
-        email: formData.email,
+      email_cliente: formData.email,
         note: formData.notes
       })
     });
@@ -377,13 +377,13 @@ export const ValuationSection: React.FC<ValuationSectionProps> = ({ onSuccess })
 
                       <div>
                         <label className="block text-xs font-bold text-slate-200 uppercase tracking-wider mb-1.5">
-                          Indirizzo Email *
+                         Indirizzo Email (facoltativo)
                         </label>
                         <div className="relative">
                           <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
                           <input
-                            type="email"
-                            required
+                           type="text"
+                          
                             id="valuation-email"
                             value={formData.email}
                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
