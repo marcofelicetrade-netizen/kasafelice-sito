@@ -15,39 +15,37 @@ export const KasaFeliceIcon: React.FC<{ className?: string }> = ({
 }) => {
   return (
     <svg
-      viewBox="0 0 120 80"
+      viewBox="0 0 120 82"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       aria-label="KasaFelice"
     >
       {/* Comignolo */}
-      <rect x="24" y="17" width="11" height="24" fill="#FFFFFF" />
-      <rect x="22" y="14" width="15" height="4" fill="#FFFFFF" />
+      <rect x="26" y="17" width="11" height="25" fill="#FFFFFF" />
+      <rect x="23.5" y="14" width="16" height="4" rx="1" fill="#FFFFFF" />
 
-      {/* Tetto / struttura principale */}
+      {/* Grande struttura/tetto bianco */}
       <path
-        d="M7 62L58 9L113 62H94L58 28L25 62H7Z"
+        d="M6 65L59 8L115 65H94L59 29L25 65H6Z"
         fill="#FFFFFF"
       />
 
-      {/* Montante arancione */}
-      <rect
-        x="43"
-        y="34"
-        width="8"
-        height="28"
+      {/* Montante arancione caratteristico */}
+      <path
+        d="M43 34H52V65H43V34Z"
         fill="#F37021"
       />
 
-      {/* Elemento interno */}
+      {/* Curva interna della K/casa */}
       <path
-        d="M51 43C58 34 66 31 73 31C78 31 82 33 86 37C77 36 69 39 62 46L51 56V43Z"
+        d="M52 44C60 34 68 30 77 31C82 31.5 87 34 91 38
+           C81 36.5 72 39.5 64 47L52 59V44Z"
         fill="#FFFFFF"
       />
 
-      {/* Finestra a quattro riquadri */}
-      <g transform="translate(75, 43)">
+      {/* Finestra */}
+      <g transform="translate(76, 43)">
         <rect x="0" y="0" width="7" height="7" fill="#07111E" />
         <rect x="9" y="0" width="7" height="7" fill="#07111E" />
         <rect x="0" y="9" width="7" height="7" fill="#07111E" />
@@ -59,7 +57,7 @@ export const KasaFeliceIcon: React.FC<{ className?: string }> = ({
 
 
 /* =========================================================
-   LOGO COMPLETO
+   LOGO KASAFELICE
    ========================================================= */
 
 export const KasaFeliceLogo: React.FC<LogoProps> = ({
@@ -68,52 +66,79 @@ export const KasaFeliceLogo: React.FC<LogoProps> = ({
   showSlogan = true
 }) => {
 
-  /* ---------------------------------------------------------
-     SOLO ICONA
-     --------------------------------------------------------- */
+  /* SOLO ICONA */
 
   if (variant === 'icon') {
     return (
-      <div
-        className={`inline-flex items-center justify-center ${className}`}
-      >
+      <div className={`inline-flex items-center justify-center ${className}`}>
         <KasaFeliceIcon />
       </div>
     );
   }
 
 
-  /* ---------------------------------------------------------
-     VERSIONE COMPACT
-     UTILIZZATA NELL'HEADER / NAVBAR
-     --------------------------------------------------------- */
+  /* =========================================================
+     LOGO HEADER / NAVBAR
+     ========================================================= */
 
   if (variant === 'compact') {
     return (
       <div
-        className={`inline-flex items-center gap-3 select-none ${className}`}
+        className={`inline-flex items-center gap-2 select-none ${className}`}
       >
 
-        {/* Icona */}
-        <div className="w-12 h-10 flex-shrink-0">
+        {/* Simbolo più grande */}
+        <div className="w-[58px] h-[46px] sm:w-[64px] sm:h-[50px] flex-shrink-0">
           <KasaFeliceIcon />
         </div>
 
 
-        {/* KASAFELICE + REAL ESTATE • NAUTICA */}
-        <div className="flex flex-col items-stretch">
+        {/* BLOCCO TESTUALE */}
+        <div className="flex flex-col">
 
-          {/* Nome */}
-          <div className="flex items-baseline leading-none whitespace-nowrap font-brand-title text-xl font-extrabold tracking-tight text-white">
+          {/* KASAFELICE */}
+          <div
+            className="
+              flex
+              items-baseline
+              leading-none
+              whitespace-nowrap
+              font-brand-title
+              text-[22px]
+              sm:text-[24px]
+              font-extrabold
+              tracking-[-0.035em]
+              text-white
+            "
+          >
             <span className="text-[#F37021]">K</span>
             <span>ASAFELICE</span>
           </div>
 
-          {/* Settori */}
-          <div className="w-full mt-[5px] flex items-center justify-between whitespace-nowrap text-[7px] sm:text-[8px] font-medium tracking-[0.16em] text-slate-300 uppercase leading-none">
+
+          {/* REAL ESTATE • NAUTICA */}
+          <div
+            className="
+              mt-[6px]
+              w-full
+              flex
+              items-center
+              justify-between
+              whitespace-nowrap
+              text-[7px]
+              sm:text-[8px]
+              font-medium
+              tracking-[0.18em]
+              text-slate-300
+              uppercase
+              leading-none
+            "
+          >
             <span>REAL ESTATE</span>
 
-            <span className="text-[#F37021] px-[3px]">•</span>
+            <span className="text-[#F37021] px-[2px]">
+              •
+            </span>
 
             <span>NAUTICA</span>
           </div>
@@ -124,9 +149,9 @@ export const KasaFeliceLogo: React.FC<LogoProps> = ({
   }
 
 
-  /* ---------------------------------------------------------
-     VERSIONE FULL
-     --------------------------------------------------------- */
+  /* =========================================================
+     LOGO COMPLETO
+     ========================================================= */
 
   return (
     <div
@@ -134,13 +159,26 @@ export const KasaFeliceLogo: React.FC<LogoProps> = ({
     >
 
       {/* Simbolo */}
-      <div className="w-full max-w-[200px] h-auto flex items-center justify-center">
+      <div className="w-full max-w-[210px] h-auto flex items-center justify-center">
         <KasaFeliceIcon />
       </div>
 
 
       {/* KASAFELICE */}
-      <div className="text-3xl sm:text-4xl font-extrabold tracking-wider leading-none text-white mt-1 flex items-baseline font-brand-title">
+      <div
+        className="
+          text-3xl
+          sm:text-4xl
+          font-extrabold
+          tracking-wider
+          leading-none
+          text-white
+          mt-1
+          flex
+          items-baseline
+          font-brand-title
+        "
+      >
         <span className="text-[#F37021]">K</span>
         <span>ASAFELICE</span>
       </div>
@@ -149,22 +187,43 @@ export const KasaFeliceLogo: React.FC<LogoProps> = ({
       {/* REAL ESTATE • NAUTICA */}
       <div className="w-full flex items-center justify-center gap-3 my-1.5 px-2">
 
-        <div className="h-[1px] bg-white/70 flex-1 max-w-[30px]" />
+        <div className="h-[1px] bg-white/70 flex-1 max-w-[25px]" />
 
-        <span className="text-[9px] sm:text-[10px] font-medium tracking-[0.20em] text-slate-300 uppercase whitespace-nowrap">
+        <span
+          className="
+            text-[9px]
+            sm:text-[10px]
+            font-medium
+            tracking-[0.18em]
+            text-slate-300
+            uppercase
+            whitespace-nowrap
+          "
+        >
           REAL ESTATE
           <span className="text-[#F37021] mx-2">•</span>
           NAUTICA
         </span>
 
-        <div className="h-[1px] bg-white/70 flex-1 max-w-[30px]" />
+        <div className="h-[1px] bg-white/70 flex-1 max-w-[25px]" />
 
       </div>
 
 
       {/* Slogan */}
       {showSlogan && (
-        <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.22em] text-[#F37021] uppercase text-center mt-0.5">
+        <span
+          className="
+            text-[10px]
+            sm:text-[11px]
+            font-semibold
+            tracking-[0.22em]
+            text-[#F37021]
+            uppercase
+            text-center
+            mt-0.5
+          "
+        >
           LE PERSONE PRIMA DEGLI IMMOBILI
         </span>
       )}
