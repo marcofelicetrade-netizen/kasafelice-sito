@@ -58,10 +58,10 @@ export const KasaFeliceLogo: React.FC<LogoProps> = ({
   if (variant === 'compact') {
     return (
       <div
-        className={`inline-flex items-center gap-1.5 select-none ${className}`}
+        className={`inline-flex items-center gap-0.5 select-none ${className}`}
       >
 
-        {/* Logo Terra + Mare leggermente più grande */}
+        {/* Logo Terra + Mare */}
         <div
           className="
             w-[84px]
