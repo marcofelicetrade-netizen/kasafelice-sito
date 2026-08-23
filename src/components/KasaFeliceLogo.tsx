@@ -10,7 +10,6 @@ interface LogoProps {
 
 /* =========================================================
    ICONA KASAFELICE
-   Nuovo simbolo definitivo Terra + Mare
    ========================================================= */
 
 export const KasaFeliceIcon: React.FC<{ className?: string }> = ({
@@ -59,16 +58,16 @@ export const KasaFeliceLogo: React.FC<LogoProps> = ({
   if (variant === 'compact') {
     return (
       <div
-        className={`inline-flex items-center gap-2.5 select-none ${className}`}
+        className={`inline-flex items-center gap-1.5 select-none ${className}`}
       >
 
-        {/* Nuovo simbolo Terra + Mare */}
+        {/* Logo Terra + Mare leggermente più grande */}
         <div
           className="
-            w-[72px]
-            h-[50px]
-            sm:w-[78px]
-            sm:h-[54px]
+            w-[84px]
+            h-[56px]
+            sm:w-[90px]
+            sm:h-[60px]
             flex-shrink-0
             flex
             items-center
@@ -145,7 +144,7 @@ export const KasaFeliceLogo: React.FC<LogoProps> = ({
       className={`flex flex-col items-center select-none ${className}`}
     >
 
-      {/* Nuovo simbolo Terra + Mare */}
+      {/* Logo Terra + Mare */}
       <div
         className="
           w-full
