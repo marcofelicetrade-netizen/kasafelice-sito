@@ -48,15 +48,43 @@ export const ValuationSection: React.FC<ValuationSectionProps> = ({ onSuccess })
     'Solo per conoscere il valore reale'
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      setSubmitted(true);
-      if (onSuccess) onSuccess();
-    }, 600);
-  };
+ const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setLoading(true);
+
+  try {
+    const response = await fetch('https://formspree.io/f/mdenjqqj', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        tipologia: formData.propertyType,
+        comune_zona: formData.location,
+        superficie_mq: formData.surface,
+        stato_immobile: formData.condition,
+        tempistica: formData.timeline,
+        nome_cognome: formData.fullName,
+        telefono: formData.phone,
+        email: formData.email,
+        note: formData.notes
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error('Errore durante l’invio della richiesta');
+    }
+
+    setSubmitted(true);
+    if (onSuccess) onSuccess();
+  } catch (error) {
+    console.error(error);
+    alert('Si è verificato un errore durante l’invio. Riprova tra qualche istante.');
+  } finally {
+    setLoading(false);
+  }
+};
 
   const handleWhatsAppDirect = () => {
     const text = `Salve Felice Marco, desidero richiedere una valutazione per il mio immobile:
