@@ -10,6 +10,7 @@ import {
   CheckCircle2,
   Instagram,
   Facebook,
+  Music2,
   Linkedin,
   Anchor,
   Building2
@@ -263,56 +264,55 @@ ${formData.message || 'Desidero ricevere maggiori informazioni.'}`;
               </div>
             </a>
 
-            <div className="pt-3">
-              <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-3">
-                Segui KasaFelice
+            {/* Social */}
+            <div className="flex items-center gap-3 pt-2">
+              <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                Segui KasaFelice:
               </span>
 
-              <div className="flex items-center gap-3">
-                <a
-                  href="https://www.instagram.com/kasafelice.it/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-11 h-11 rounded-xl bg-slate-800 text-slate-300 hover:text-[#F37021] hover:bg-slate-700 transition-all flex items-center justify-center"
-                  aria-label="Instagram KasaFelice"
-                  title="Instagram"
-                >
-                  <Instagram className="w-5 h-5" />
-                </a>
+              <a
+                href="https://www.instagram.com/kasafelice.it/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2.5 rounded-xl bg-slate-800 text-slate-300 hover:text-[#F37021] hover:bg-slate-700 transition-colors"
+                aria-label="Instagram KasaFelice"
+                title="Instagram"
+              >
+                <Instagram className="w-4 h-4" />
+              </a>
 
-                <a
-                  href="https://www.facebook.com/share/19Qwc85fgL/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-11 h-11 rounded-xl bg-slate-800 text-slate-300 hover:text-[#F37021] hover:bg-slate-700 transition-all flex items-center justify-center"
-                  aria-label="Facebook KasaFelice"
-                  title="Facebook"
-                >
-                  <Facebook className="w-5 h-5" />
-                </a>
+              <a
+                href="https://www.facebook.com/share/19Qwc85fgL/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2.5 rounded-xl bg-slate-800 text-slate-300 hover:text-[#F37021] hover:bg-slate-700 transition-colors"
+                aria-label="Facebook KasaFelice"
+                title="Facebook"
+              >
+                <Facebook className="w-4 h-4" />
+              </a>
 
-                <a
-                  href="https://www.tiktok.com/@felicemarco"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-11 h-11 rounded-xl bg-slate-800 text-slate-300 hover:text-[#F37021] hover:bg-slate-700 transition-all flex items-center justify-center"
-                  aria-label="TikTok Felice Marco"
-                  title="TikTok"
-                >
-                  <span className="text-lg font-black leading-none">♪</span>
-                </a>
+              <a
+                href="https://www.tiktok.com/@felicemarco"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2.5 rounded-xl bg-slate-800 text-slate-300 hover:text-[#F37021] hover:bg-slate-700 transition-colors"
+                aria-label="TikTok Felice Marco"
+                title="TikTok"
+              >
+                <Music2 className="w-4 h-4" />
+              </a>
 
-                <a
-                  href="https://www.linkedin.com/in/felice-marco-b4b33411b/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-11 h-11 rounded-xl bg-slate-800 text-slate-300 hover:text-[#F37021] hover:bg-slate-700 transition-all flex items-center justify-center"
-                  aria-label="LinkedIn Felice Marco"
-                  title="LinkedIn"
-                >
-                  <Linkedin className="w-5 h-5" />
-                </a>
-              </div>
+              <a
+                href="https://www.linkedin.com/in/felice-marco-b4b33411b/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2.5 rounded-xl bg-slate-800 text-slate-300 hover:text-[#F37021] hover:bg-slate-700 transition-colors"
+                aria-label="LinkedIn Felice Marco"
+                title="LinkedIn"
+              >
+                <Linkedin className="w-4 h-4" />
+              </a>
             </div>
           </div>
 
@@ -413,7 +413,7 @@ ${formData.message || 'Desidero ricevere maggiori informazioni.'}`;
                       </label>
 
                       <input
-                        type="email"
+                        type="text"
                         value={formData.email}
                         onChange={(e) =>
                           setFormData({
