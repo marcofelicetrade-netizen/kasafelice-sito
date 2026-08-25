@@ -5,22 +5,40 @@ export const BRAND_INFO = {
   founder: 'Felice Marco',
   title: 'Agente Immobiliare & Mediatore Marittimo',
   slogan: 'Le persone prima degli immobili.',
+
   heroSubtitle:
     'Mediazione immobiliare, marittima e consulenza. Un rapporto diretto e trasparente, dalla prima valutazione fino alla conclusione dell\'operazione.',
 
-  // Telefono principale
-  phone: '+39 377 381 3986',
-  phoneDisplay: '+39 377 381 3986',
+  // Sede operativa
+  location:
+    'Corso Vittorio Emanuele, 193 - 84122 Salerno (SA)',
+
+  mapsUrl:
+    'https://www.google.com/maps/place//data=!4m2!3m1!1s0x133bc30a2ed1e377:0x37df71be22065b3d',
+
+  // Telefono Immobiliare
+  phone: '+39 089 926 0828',
+  phoneDisplay: '089 926 0828',
+
+  // Telefono Nautica
+  nauticalPhone: '+39 081 1808 6593',
+  nauticalPhoneDisplay: '081 1808 6593',
 
   // WhatsApp
   whatsappPhone: '+39 324 876 3190',
+  whatsappPhoneDisplay: '324 876 3190',
+
   whatsappMessage:
     'Ciao Felice, ti contatto dal sito KasaFelice.it e vorrei ricevere maggiori informazioni.',
 
+  // Email
   email: 'info@kasafelice.it',
-  location: 'Lago di Garda & Territorio Nazionale',
-  operatingArea: 'Lago di Garda e territorio nazionale',
-  hours: 'Su appuntamento'
+
+  // Ricevimento
+  hours: 'Ricevimento su appuntamento',
+
+  operatingArea:
+    'Sede operativa Immobiliare & Nautica a Salerno'
 };
 
 export const SERVICES_DATA: ServiceItem[] = [
