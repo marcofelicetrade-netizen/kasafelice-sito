@@ -91,12 +91,12 @@ export const FounderPortrait: React.FC<FounderPortraitProps> = ({
               </div>
             </div>
 
-            {/* Badge superiore: quasi a filo del bordo */}
+            {/* Badge superiore: ancorato quasi al bordo alto della foto */}
             <div
               className="
                 absolute
-                top-1
-                sm:top-1.5
+                top-[1px]
+                sm:top-[2px]
                 left-3
                 sm:left-4
                 bg-[#07111E]/92
