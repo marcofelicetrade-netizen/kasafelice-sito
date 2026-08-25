@@ -53,10 +53,10 @@ export const FounderPortrait: React.FC<FounderPortraitProps> = ({
 
   return (
     <div className={`relative w-full max-w-md lg:max-w-none ${className}`}>
-      {/* Outer subtle glow frame */}
+      {/* Outer glow */}
       <div className="absolute -inset-1.5 rounded-3xl bg-gradient-to-tr from-[#F37021]/30 via-slate-700/20 to-blue-600/20 blur-md opacity-70 pointer-events-none"></div>
 
-      {/* Main Container */}
+      {/* Main container */}
       <div className="relative rounded-2xl overflow-hidden border border-slate-700/80 bg-[#0F223D] shadow-2xl flex flex-col w-full">
         {!imageError ? (
           <div className="relative aspect-[3/4] w-full bg-[#0F223D] overflow-hidden">
@@ -73,16 +73,12 @@ export const FounderPortrait: React.FC<FounderPortraitProps> = ({
               referrerPolicy="no-referrer"
             />
 
-            {/* 
-              Gradiente inferiore più intenso.
-              Serve a mantenere leggibile il nome e a neutralizzare
-              graficamente eventuali elementi incorporati nella foto.
-            */}
-            <div className="absolute bottom-0 inset-x-0 h-[34%] bg-gradient-to-t from-[#07111E] via-[#07111E]/95 to-transparent pointer-events-none"></div>
+            {/* Gradiente inferiore */}
+            <div className="absolute bottom-0 inset-x-0 h-[30%] bg-gradient-to-t from-[#07111E] via-[#07111E]/92 to-transparent pointer-events-none"></div>
 
             {/* Nome e ruolo */}
             <div className="absolute bottom-0 inset-x-0 p-5 sm:p-6">
-              <div className="max-w-[85%]">
+              <div className="max-w-[88%]">
                 <div className="text-2xl sm:text-3xl font-bold text-white font-brand-title leading-tight">
                   Felice Marco
                 </div>
@@ -95,8 +91,31 @@ export const FounderPortrait: React.FC<FounderPortraitProps> = ({
               </div>
             </div>
 
-            {/* Badge superiore */}
-            <div className="absolute top-2 sm:top-3 left-3 sm:left-4 bg-[#07111E]/92 backdrop-blur-md border border-slate-700/70 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full flex items-center gap-2 shadow-lg max-w-[88%]">
+            {/* Badge superiore: quasi a filo del bordo */}
+            <div
+              className="
+                absolute
+                top-1
+                sm:top-1.5
+                left-3
+                sm:left-4
+                bg-[#07111E]/92
+                backdrop-blur-md
+                border
+                border-slate-700/70
+                px-3
+                py-1
+                sm:px-3.5
+                sm:py-1.5
+                rounded-full
+                flex
+                items-center
+                gap-2
+                shadow-lg
+                max-w-[88%]
+                z-20
+              "
+            >
               <span className="w-2 h-2 rounded-full bg-[#F37021] flex-shrink-0"></span>
 
               <span className="text-[10px] sm:text-[11px] font-medium text-slate-200 whitespace-nowrap">
@@ -107,7 +126,7 @@ export const FounderPortrait: React.FC<FounderPortraitProps> = ({
             </div>
           </div>
         ) : (
-          /* Fallback grafico nel caso in cui la fotografia non sia disponibile */
+          /* Fallback grafico */
           <div className="relative aspect-[3/4] w-full bg-gradient-to-b from-[#0B1A2E] via-[#0F223D] to-[#07111E] p-8 flex flex-col justify-between items-center text-center overflow-hidden">
             <div className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#F37021_1px,transparent_1px)] [background-size:16px_16px]"></div>
 
