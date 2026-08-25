@@ -1,7 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { KasaFeliceLogo } from './KasaFeliceLogo';
 import { BRAND_INFO } from '../data/content';
-import { Phone, MessageCircle, Menu, X, ArrowRight, Home, User, Layers, Anchor, Mail, Sparkles } from 'lucide-react';
+import {
+  Phone,
+  MessageCircle,
+  Menu,
+  X,
+  ArrowRight,
+  Home,
+  User,
+  Layers,
+  Anchor,
+  Mail,
+  Sparkles,
+  BriefcaseBusiness
+} from 'lucide-react';
 
 interface NavbarProps {
   onOpenValuation: () => void;
@@ -19,8 +32,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenValuation }) => {
         setIsScrolled(false);
       }
     };
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   const navLinks = [
@@ -29,16 +46,31 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenValuation }) => {
     { label: 'Servizi', href: '#servizi', icon: Layers },
     { label: 'Immobili', href: '#immobili', icon: Home },
     { label: 'Nautica', href: '#nautica', icon: Anchor },
-    { label: 'Contatti', href: '#contatti', icon: Mail },
+    {
+      label: 'Lavora con noi',
+      href: '#lavora-con-noi',
+      icon: BriefcaseBusiness
+    },
+    { label: 'Contatti', href: '#contatti', icon: Mail }
   ];
 
   const handleNavClick = (href: string) => {
     setMobileMenuOpen(false);
+
     const element = document.querySelector(href);
+
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
   };
+
+  const whatsappNumber = BRAND_INFO.whatsappPhone.replace(/[^0-9]/g, '');
+
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+    BRAND_INFO.whatsappMessage
+  )}`;
 
   return (
     <header
@@ -70,6 +102,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenValuation }) => {
                 className="px-3 py-2 text-sm font-medium text-slate-200 hover:text-[#F37021] transition-colors rounded-lg hover:bg-slate-800/40 relative group cursor-pointer"
               >
                 {link.label}
+
                 <span className="absolute bottom-1 left-3 right-3 h-0.5 bg-[#F37021] scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200"></span>
               </button>
             ))}
@@ -89,7 +122,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenValuation }) => {
 
             {/* WhatsApp direct */}
             <a
-              href={`https://wa.me/${BRAND_INFO.phone.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(BRAND_INFO.whatsappMessage)}`}
+              href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
               id="header-whatsapp-btn"
@@ -119,13 +152,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenValuation }) => {
             >
               Valuta
             </button>
+
             <button
               id="mobile-menu-toggle"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 text-slate-300 hover:text-white hover:bg-slate-800 rounded-lg transition-colors"
               aria-label="Toggle navigation menu"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
         </div>
@@ -140,10 +178,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenValuation }) => {
           <div className="flex flex-col gap-2">
             {navLinks.map((link) => {
               const Icon = link.icon;
+
               return (
                 <button
                   key={link.label}
-                  id={`mobile-nav-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
+                  id={`mobile-nav-${link.label
+                    .toLowerCase()
+                    .replace(/\s+/g, '-')}`}
                   onClick={() => handleNavClick(link.href)}
                   className="flex items-center justify-between p-3.5 text-base font-semibold text-slate-100 hover:text-[#F37021] bg-slate-800/40 hover:bg-slate-800/80 border border-slate-700/30 rounded-xl transition-all"
                 >
@@ -151,6 +192,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenValuation }) => {
                     <Icon className="w-5 h-5 text-[#F37021]" />
                     {link.label}
                   </span>
+
                   <ArrowRight className="w-4 h-4 text-slate-400" />
                 </button>
               );
@@ -173,6 +215,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenValuation }) => {
             <div className="text-xs text-slate-400 text-center font-medium">
               Contatto diretto con {BRAND_INFO.founder}
             </div>
+
             <div className="grid grid-cols-2 gap-3">
               <a
                 href={`tel:${BRAND_INFO.phone.replace(/\s+/g, '')}`}
@@ -181,8 +224,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenValuation }) => {
                 <Phone className="w-4 h-4 text-[#F37021]" />
                 <span>Chiama</span>
               </a>
+
               <a
-                href={`https://wa.me/${BRAND_INFO.phone.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(BRAND_INFO.whatsappMessage)}`}
+                href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 p-3 bg-emerald-900/40 text-emerald-300 border border-emerald-700/50 rounded-xl text-xs font-semibold"
