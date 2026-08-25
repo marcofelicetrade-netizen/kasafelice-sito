@@ -17,6 +17,7 @@ export const FounderPortrait: React.FC<FounderPortraitProps> = ({
     ? [photoSrc]
     : variant === 'hero'
     ? [
+        '/felice_marco_hero_senza_logo.png',
         '/felice_marco_hero.jpg',
         '/felice_marco_hero(1).jpg',
         '/felice_marco_hero (1).jpg',
@@ -27,6 +28,7 @@ export const FounderPortrait: React.FC<FounderPortraitProps> = ({
         '/src/assets/images/felice_marco.jpg'
       ]
     : [
+        '/felice_marco_marina_senza_logo.png',
         '/felice_marco_marina.jpg',
         '/felice_marco_marina(1).jpg',
         '/felice_marco_marina (1).jpg',
