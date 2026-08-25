@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { BRAND_INFO } from '../data/content';
 import { ContactFormData } from '../types';
 import {
-  Phone,
   Mail,
   MapPin,
   MessageCircle,
@@ -30,8 +29,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
     message: ''
   });
 
-  const [submitted, setSubmitted] = useState<boolean>(false);
-  const [loading, setLoading] = useState<boolean>(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const subjectOptions = [
     'Valutazione Immobile',
@@ -70,7 +69,9 @@ Oggetto: ${formData.subject}
 Nome: ${formData.fullName || 'Non specificato'}
 Email: ${formData.email || 'Non specificata'}
 Telefono: ${formData.phone || 'Non specificato'}
-Messaggio: ${formData.message || 'Desidero ricevere maggiori informazioni.'}`;
+
+Messaggio:
+${formData.message || 'Desidero ricevere maggiori informazioni.'}`;
 
     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
       text
@@ -86,7 +87,7 @@ Messaggio: ${formData.message || 'Desidero ricevere maggiori informazioni.'}`;
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
-        {/* Section Header */}
+        {/* Intestazione */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-800 border border-slate-700 text-[#F37021] text-xs font-semibold uppercase tracking-wider mb-3">
             <Mail className="w-3.5 h-3.5" />
@@ -98,22 +99,19 @@ Messaggio: ${formData.message || 'Desidero ricevere maggiori informazioni.'}`;
           </h2>
 
           <p className="mt-4 text-base sm:text-lg text-slate-300">
-            Per informazioni, valutazioni immobiliari, compravendite,
-            consulenza e mediazione marittima puoi contattare direttamente
-            KasaFelice attraverso il canale più comodo per te.
+            Immobiliare, nautica e consulenza: scegli il canale più adatto
+            alla tua richiesta e mettiti in contatto con KasaFelice.
           </p>
         </div>
 
-        {/* Contact Container Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
 
-          {/* Left Column */}
+          {/* COLONNA CONTATTI */}
           <div className="lg:col-span-5 space-y-5">
 
-            {/* Real Estate Phone */}
+            {/* Immobiliare */}
             <a
               href={`tel:${BRAND_INFO.phone.replace(/[^0-9+]/g, '')}`}
-              id="contact-real-estate-phone"
               className="p-6 rounded-2xl bg-[#0B1A2E] border border-slate-800 hover:border-[#F37021]/60 transition-all flex items-center gap-4 group"
             >
               <div className="w-14 h-14 rounded-xl bg-[#F37021]/15 text-[#F37021] flex items-center justify-center group-hover:bg-[#F37021] group-hover:text-white transition-colors flex-shrink-0">
@@ -135,10 +133,9 @@ Messaggio: ${formData.message || 'Desidero ricevere maggiori informazioni.'}`;
               </div>
             </a>
 
-            {/* Nautical Phone */}
+            {/* Nautica */}
             <a
               href={`tel:${BRAND_INFO.nauticalPhone.replace(/[^0-9+]/g, '')}`}
-              id="contact-nautical-phone"
               className="p-6 rounded-2xl bg-[#0B1A2E] border border-slate-800 hover:border-sky-600/60 transition-all flex items-center gap-4 group"
             >
               <div className="w-14 h-14 rounded-xl bg-sky-500/15 text-sky-400 flex items-center justify-center group-hover:bg-sky-600 group-hover:text-white transition-colors flex-shrink-0">
@@ -165,7 +162,6 @@ Messaggio: ${formData.message || 'Desidero ricevere maggiori informazioni.'}`;
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              id="contact-whatsapp-card"
               className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-800/40 hover:border-emerald-700/70 transition-all flex items-center gap-4 group"
             >
               <div className="w-14 h-14 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center group-hover:bg-emerald-500 group-hover:text-white transition-colors flex-shrink-0">
@@ -182,7 +178,7 @@ Messaggio: ${formData.message || 'Desidero ricevere maggiori informazioni.'}`;
                 </span>
 
                 <span className="text-xs text-slate-300 block mt-0.5">
-                  Scrivi direttamente a KasaFelice
+                  Contatto rapido via WhatsApp
                 </span>
               </div>
             </a>
@@ -190,8 +186,7 @@ Messaggio: ${formData.message || 'Desidero ricevere maggiori informazioni.'}`;
             {/* Email */}
             <a
               href={`mailto:${BRAND_INFO.email}`}
-              id="contact-email-card"
-              className="p-6 rounded-2xl bg-[#0B1A2E] border border-slate-800 hover:border-slate-700 transition-all flex items-center gap-4 group"
+              className="p-6 rounded-2xl bg-[#0B1A2E] border border-slate-800 hover:border-[#F37021]/60 transition-all flex items-center gap-4 group"
             >
               <div className="w-14 h-14 rounded-xl bg-[#F37021]/15 text-[#F37021] flex items-center justify-center group-hover:bg-[#F37021] group-hover:text-white transition-colors flex-shrink-0">
                 <Mail className="w-6 h-6" />
@@ -202,22 +197,17 @@ Messaggio: ${formData.message || 'Desidero ricevere maggiori informazioni.'}`;
                   Email
                 </span>
 
-                <span className="text-base sm:text-lg font-bold text-white tracking-wide break-all">
+                <span className="text-base sm:text-lg font-bold text-white break-all">
                   {BRAND_INFO.email}
-                </span>
-
-                <span className="text-xs text-slate-400 block mt-0.5">
-                  Documentazione e comunicazioni
                 </span>
               </div>
             </a>
 
-            {/* Operational HQ */}
+            {/* Sede operativa */}
             <a
               href={BRAND_INFO.mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              id="contact-location-card"
               className="block p-6 rounded-2xl bg-[#0B1A2E] border border-slate-800 hover:border-[#F37021]/60 transition-all"
             >
               <div className="flex items-start gap-3">
@@ -240,7 +230,7 @@ Messaggio: ${formData.message || 'Desidero ricevere maggiori informazioni.'}`;
                 </div>
               </div>
 
-              <div className="flex items-start gap-3 pt-4 mt-4 border-t border-slate-800/80">
+              <div className="flex items-start gap-3 pt-4 mt-4 border-t border-slate-800">
                 <Clock className="w-5 h-5 text-[#F37021] flex-shrink-0 mt-0.5" />
 
                 <div>
@@ -248,7 +238,7 @@ Messaggio: ${formData.message || 'Desidero ricevere maggiori informazioni.'}`;
                     Ricevimento
                   </span>
 
-                  <p className="text-xs text-slate-300 mt-0.5">
+                  <p className="text-xs text-slate-300 mt-1">
                     {BRAND_INFO.hours}
                   </p>
                 </div>
@@ -261,31 +251,29 @@ Messaggio: ${formData.message || 'Desidero ricevere maggiori informazioni.'}`;
                 Segui KasaFelice:
               </span>
 
-              <div className="flex items-center gap-2">
-                <a
-                  href="https://instagram.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2.5 rounded-xl bg-slate-800 text-slate-300 hover:text-[#F37021] hover:bg-slate-700 transition-colors"
-                  aria-label="Instagram KasaFelice"
-                >
-                  <Instagram className="w-4 h-4" />
-                </a>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2.5 rounded-xl bg-slate-800 text-slate-300 hover:text-[#F37021] hover:bg-slate-700 transition-colors"
+                aria-label="Instagram KasaFelice"
+              >
+                <Instagram className="w-4 h-4" />
+              </a>
 
-                <a
-                  href="https://facebook.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2.5 rounded-xl bg-slate-800 text-slate-300 hover:text-[#F37021] hover:bg-slate-700 transition-colors"
-                  aria-label="Facebook KasaFelice"
-                >
-                  <Facebook className="w-4 h-4" />
-                </a>
-              </div>
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2.5 rounded-xl bg-slate-800 text-slate-300 hover:text-[#F37021] hover:bg-slate-700 transition-colors"
+                aria-label="Facebook KasaFelice"
+              >
+                <Facebook className="w-4 h-4" />
+              </a>
             </div>
           </div>
 
-          {/* Right Column */}
+          {/* COLONNA FORM */}
           <div className="lg:col-span-7">
             <div className="rounded-3xl bg-[#0F223D] border border-slate-700/80 p-6 sm:p-10 shadow-2xl">
 
@@ -295,29 +283,27 @@ Messaggio: ${formData.message || 'Desidero ricevere maggiori informazioni.'}`;
                 </h3>
 
                 <p className="text-xs sm:text-sm text-slate-300 mt-1">
-                  Compila il form oppure utilizza WhatsApp per contattarci
-                  rapidamente.
+                  Compila il modulo oppure invia direttamente la richiesta
+                  tramite WhatsApp.
                 </p>
               </div>
 
               {submitted ? (
-                <div
-                  id="contact-form-success"
-                  className="py-12 text-center flex flex-col items-center animate-fadeIn"
-                >
+                <div className="py-12 text-center flex flex-col items-center">
                   <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 flex items-center justify-center mb-4">
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
 
-                  <h4 className="text-xl font-bold text-white mb-2 font-brand-title">
+                  <h4 className="text-xl font-bold text-white mb-2">
                     Richiesta acquisita
                   </h4>
 
-                  <p className="text-sm text-slate-300 max-w-md mx-auto mb-6">
+                  <p className="text-sm text-slate-300 mb-6">
                     Grazie per aver contattato KasaFelice.
                   </p>
 
                   <button
+                    type="button"
                     onClick={() => {
                       setSubmitted(false);
 
@@ -337,7 +323,6 @@ Messaggio: ${formData.message || 'Desidero ricevere maggiori informazioni.'}`;
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
 
-                  {/* Name & Phone */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-bold text-slate-200 uppercase tracking-wider mb-1.5">
@@ -347,7 +332,6 @@ Messaggio: ${formData.message || 'Desidero ricevere maggiori informazioni.'}`;
                       <input
                         type="text"
                         required
-                        id="contact-fullname"
                         value={formData.fullName}
                         onChange={(e) =>
                           setFormData({
@@ -368,7 +352,6 @@ Messaggio: ${formData.message || 'Desidero ricevere maggiori informazioni.'}`;
                       <input
                         type="tel"
                         required
-                        id="contact-phone"
                         value={formData.phone}
                         onChange={(e) =>
                           setFormData({
@@ -382,7 +365,6 @@ Messaggio: ${formData.message || 'Desidero ricevere maggiori informazioni.'}`;
                     </div>
                   </div>
 
-                  {/* Email & Subject */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-bold text-slate-200 uppercase tracking-wider mb-1.5">
@@ -391,7 +373,6 @@ Messaggio: ${formData.message || 'Desidero ricevere maggiori informazioni.'}`;
 
                       <input
                         type="email"
-                        id="contact-email"
                         value={formData.email}
                         onChange={(e) =>
                           setFormData({
@@ -410,7 +391,6 @@ Messaggio: ${formData.message || 'Desidero ricevere maggiori informazioni.'}`;
                       </label>
 
                       <select
-                        id="contact-subject-select"
                         value={formData.subject}
                         onChange={(e) =>
                           setFormData({
@@ -420,20 +400,15 @@ Messaggio: ${formData.message || 'Desidero ricevere maggiori informazioni.'}`;
                         }
                         className="w-full px-4 py-3 rounded-xl bg-[#07111E] border border-slate-700 text-white text-sm focus:border-[#F37021] outline-none"
                       >
-                        {subjectOptions.map((opt) => (
-                          <option
-                            key={opt}
-                            value={opt}
-                            className="bg-[#07111E] text-white"
-                          >
-                            {opt}
+                        {subjectOptions.map((option) => (
+                          <option key={option} value={option}>
+                            {option}
                           </option>
                         ))}
                       </select>
                     </div>
                   </div>
 
-                  {/* Message */}
                   <div>
                     <label className="block text-xs font-bold text-slate-200 uppercase tracking-wider mb-1.5">
                       Messaggio *
@@ -442,7 +417,6 @@ Messaggio: ${formData.message || 'Desidero ricevere maggiori informazioni.'}`;
                     <textarea
                       rows={4}
                       required
-                      id="contact-message"
                       value={formData.message}
                       onChange={(e) =>
                         setFormData({
@@ -450,23 +424,21 @@ Messaggio: ${formData.message || 'Desidero ricevere maggiori informazioni.'}`;
                           message: e.target.value
                         })
                       }
-                      placeholder="Descrivi brevemente la tua richiesta o l'immobile/imbarcazione..."
+                      placeholder="Descrivi brevemente la tua richiesta..."
                       className="w-full px-4 py-3 rounded-xl bg-[#07111E] border border-slate-700 text-white text-sm focus:border-[#F37021] outline-none resize-none"
-                    ></textarea>
+                    />
                   </div>
 
-                  <div className="text-[11px] text-slate-400">
-                    I dati inseriti saranno utilizzati esclusivamente per
-                    ricontattarti in merito alla richiesta.
-                  </div>
+                  <p className="text-[11px] text-slate-400">
+                    I dati inseriti saranno utilizzati per ricontattarti in
+                    merito alla richiesta.
+                  </p>
 
-                  {/* Buttons */}
-                  <div className="pt-2 flex flex-col sm:flex-row items-center gap-3">
+                  <div className="pt-2 flex flex-col sm:flex-row gap-3">
                     <button
                       type="submit"
-                      id="contact-submit-btn"
                       disabled={loading}
-                      className="w-full sm:flex-1 py-3.5 px-6 rounded-xl bg-[#F37021] hover:bg-[#E05E10] text-white font-bold text-xs sm:text-sm uppercase tracking-wider shadow-lg shadow-orange-950/40 flex items-center justify-center gap-2 transition-all cursor-pointer disabled:opacity-50"
+                      className="w-full sm:flex-1 py-3.5 px-6 rounded-xl bg-[#F37021] hover:bg-[#E05E10] text-white font-bold text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2 transition-all disabled:opacity-50"
                     >
                       {loading ? (
                         <span>Invio in corso...</span>
@@ -481,7 +453,7 @@ Messaggio: ${formData.message || 'Desidero ricevere maggiori informazioni.'}`;
                     <button
                       type="button"
                       onClick={handleWhatsAppSend}
-                      className="w-full sm:w-auto py-3.5 px-5 rounded-xl bg-emerald-700 hover:bg-emerald-600 text-white font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                      className="w-full sm:w-auto py-3.5 px-5 rounded-xl bg-emerald-700 hover:bg-emerald-600 text-white font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2"
                     >
                       <MessageCircle className="w-4 h-4" />
                       <span>Invia via WhatsApp</span>
